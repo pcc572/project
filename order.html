@@ -162,7 +162,7 @@
 <script>
 var app = angular.module('myApp', []);
 app.controller('r_controller', function($scope, $http) {
-   $http.get("mysql/crud_company")
+   $http.get("mysql/purchase_orders")
    .then(function (response) {
       $scope.names = response.data;
       // console.log(response.data);
@@ -171,11 +171,13 @@ app.controller('r_controller', function($scope, $http) {
 
 app.controller('c_controller', function($scope, $http) {
   $scope.save = function () {
-    $http.post("mysql/crud_company", {"id": $scope.id, "name": $scope.name, "address": $scope.address, "phone": $scope.phone})
+    $http.post("mysql/purchase_orders", {"id": $scope.id, "name": $scope.name, "card_number": $scope.card_number , "address": $scope.address, "product": $scope.product})
     .then(function (response) {
         // $scope.added = response.data;
-        $scope.results = response.data;
+        $scope.results = response.data
         console.log(response.data);
+    });
+
     });
   }    
 });
