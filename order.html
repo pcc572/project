@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -81,7 +82,7 @@
             
             <h2>For all your Norse needs</h2>
             <p>
-              <a href="index.html" class="btn btn-primary btn-lg btn-hardbound">Home </a>
+              <a href="/" class="btn btn-primary btn-lg btn-hardbound">Home </a>
               <a href="book.html" class="btn btn-primary btn-lg btn-hardbound">Books </a> 
               <a href="hair.html" class="btn btn-primary btn-lg btn-hardbound">Hair Products </a>
               <a href="modern norse.html" class="btn btn-primary btn-lg btn-hardbound">Modern Representation </a> 
@@ -93,40 +94,34 @@
     </div>
   </header>
 
-<h1> Hello, Customer! </h1>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+ 
+<div ng-app="myApp">
+
+<h1> Purchase Orders </h1>
 <hr />
-
-<div ng-controller="r_controller">
-  <table>
-    <tr ng-repeat="x in names">
-      <td>{{ x.id }}</td>
-      <td>{{ x.name }}</td>
-      <td>{{ x.card number }}</td>
-      <td>{{ x.address }}</td>
-      <td>{{ x.product }}</td>
-    </tr>
-  </table>
-</div>
-
 <hr />
 <div ng-controller="c_controller">
   <form class="form-group">
     ID:<br>
-    <input type="text" class="form-control" ng-model="id" required>
+    <input type="number" class="form-control" ng-model="id" required><br>
     Name:<br>
-    <input type="text" class="form-control" ng-model="Name" required>
+    <input type="text" class="form-control" ng-model="name" required><br>
     Card Number:<br>
-    <input type="text" class="form-control" ng-model="card number" required>
+    <input type="text" class="form-control" ng-model="card_number" required><br>
     Address:<br>
-    <input type="text" class="form-control" ng-model="address" required>
+    <input type="text" class="form-control" ng-model="address" required><br>
     Product:<br>
     <input type="text" class="form-control" ng-model="product" required>
     <br><br>
-    <button type="submit" class="btn btn-default" ng-click="save()">Submit</button>
+    <button type="submit" class="btn btn-default" ng-click="save()">Submit Order</button>
   </form>
+  <p>id:{{id}} <br>name:{{name}} <br>address:{{address}} <br>product:{{product}} <br> return results:{{results}}</p>
 </div>
 
-<a href="index.html" class="btn btn-primary btn-lg btn-hardbound">Return Home</a>
+
+<a href="/" class="btn btn-primary btn-lg btn-hardbound">Return Home</a>
 </div>
 
     <footer id="footer">
@@ -176,8 +171,6 @@ app.controller('c_controller', function($scope, $http) {
         // $scope.added = response.data;
         $scope.results = response.data
         console.log(response.data);
-    });
-
     });
   }    
 });
