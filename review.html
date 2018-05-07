@@ -93,19 +93,47 @@
     </div>
   </header>
 
-<h1> Hello, Reviewer! </h1>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+ 
+<div ng-app="myApp">
+
+<h1> Reviews </h1>
 <hr />
 
 <div ng-controller="r_controller">
+  <h2> Recent Reviews </h2>
   <table>
+    <tr>
+    <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Book Title</th>
+      <th>Review</th>
+    </tr>
     <tr ng-repeat="x in names">
-      <td>{{ x.name }}</td>
+      <td>{{ x.idn }}</td>
+      <td>{{ x.name2 }}</td>
       <td>{{ x.email }}</td>
-      <td>{{ x.book }}</td>
-      <td>{{ x.Review }}</td>
+      <td>{{ x.book_title }}</td>
+      <td>{{ x.review }}</td>
     </tr>
   </table>
 </div>
+<hr />
 
 <hr />
 <div ng-controller="c_controller">
